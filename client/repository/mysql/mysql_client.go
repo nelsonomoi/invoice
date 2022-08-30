@@ -19,7 +19,7 @@ func NewMysqlClientRepository(Conn *sql.DB) domain.ClientRepository  {
 
 
 func (m *mysqlClientRepository) Store(ctx context.Context, a *domain.Client) (err error) {
-	query := `INSERT  article SET client_name=? , email=? , phone=?`
+	query := `INSERT  client SET client_name=? , email=? , phone=?`
 	stmt, err := m.Conn.PrepareContext(ctx, query)
 	if err != nil {
 		return
